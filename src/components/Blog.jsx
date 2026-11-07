@@ -7,7 +7,7 @@ export default function Blog(){
     return (
         <>
         <NavBar />
-        <main className={styles.app} >
+        <main className={styles.content} >
             <Outlet />{/* gets swapped for the child route that matches the url */}
         </main>
         </>

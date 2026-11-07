@@ -1,8 +1,23 @@
+import {NavLink} from 'react-router-dom'
+import { styles } from '../styles/styles';
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline"
+
 export default function NavBar(){
     return (
-        <header className='w-full bg-[#0f0e17]'>
-            <div className='h-18 mx-auto px-6 border-b border-b-emerald-500'>
+        <header className={styles.header}>
+            {/* <div className='h-18 mx-auto px-6 border-b border-b-emerald-500'> */}
+            <div className={styles.headerContent}>
             <Logo />
+            <nav>
+              <NavLink to="/blog">Blog Post</NavLink>
+            </nav>
+
+            <div className='flex gap-8 items-center'>
+              <button>
+                <SunIcon className='size-6 text-teal-500'/>
+              </button>
+              <button type='button' className={styles.headerButton}>Subscribe</button>
+            </div>
             </div>
         </header>
     )
