@@ -10,13 +10,14 @@ export default function NavBar(){
             <NavLink to="/"><Logo /></NavLink>
             <nav>
               <NavLink to="/blog">Blog Post</NavLink>
+              <NavLink to="/login">Login</NavLink>
             </nav>
 
             <div className='flex gap-8 items-center'>
               <button>
                 <SunIcon className='size-6 text-teal-500'/>
               </button>
-              <button type='button' className={styles.headerButton}>Subscribe</button>
+              <button type='button' className={styles.headerBtn}>Subscribe</button>
             </div>
             </div>
         </header>

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import usePosts from "../context/PostsContext";
 
-export default function BlogPosts() {
+export default function BlogPost() {
   //get the posts
   const { posts } = usePosts();
 
@@ -16,7 +16,7 @@ export default function BlogPosts() {
   const currentPostIndex = posts.findIndex((post) => post.slug === slug);
   //use the index of the current post to get the post object
   const post = posts[currentPostIndex];
-  console.log(post);
+
 
   if (post === undefined) {
     return (

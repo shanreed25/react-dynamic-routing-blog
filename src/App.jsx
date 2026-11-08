@@ -4,6 +4,7 @@ import BlogPosts from './pages/BlogPosts';
 import BlogPost from './pages/BlogPost';
 import Blog from './components/Blog';
 import NotFound from './pages/NotFound'
+import Login from './pages/Login'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path='/' element={<HomePage />}/>
           <Route path='/blog' element={<BlogPosts />}/>
           <Route path='/blog/:slug' element={<BlogPost />}/>
+          <Route path='/login' element={<Login />}/>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

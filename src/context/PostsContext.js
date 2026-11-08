@@ -13,7 +13,7 @@ export default function usePosts() {
 
   //if context is undefined it throws an error
   if (context === undefined) {
-    throw new Error("usePosts must be used inside of the PostContext.Provider");
+    throw new Error("usePosts must be used inside of the PostsContext.Provider");
   }
 
   return context;

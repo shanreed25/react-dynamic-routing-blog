@@ -11,17 +11,52 @@
 
 
 ## Public Blog Pages
-- [ ] **Blog Index Page (/blog):**
-    - [ ] This page should display a list of all available blog posts.
-    - [ ] Each item in the list should be a link that navigates to the specific post’s page using its slug (e.g., /blog/my-first-post).
-- [ ] **Dynamic Blog Post Page (/blog/[slug]):**
-    - [ ] This is a dynamic route that should render a single blog post.
-    - [ ] It must use the slug from the URL to find and display the correct post’s title and content from your mock data.
-    - [ ] If a post with the given slug cannot be found, it should display a “Post not found” message.
+- [X] **Blog Index Page (/blog):**
+    - [X] This page should display a list of all available blog posts.
+    - [X] Each item in the list should be a link that navigates to the specific post’s page using its slug (e.g., /blog/my-first-post).
+- [X] **Dynamic Blog Post Page (/blog/[slug]):**
+    - [X] This is a dynamic route that should render a single blog post.
+    - [X] It must use the slug from the URL to find and display the correct post’s title and content from your mock data.
+    - [X] If a post with the given slug cannot be found, it should display a “Post not found” message.
+
+## Routing
+> Routing uses React Router with four files doing the work
+- **`main.jsx`** turns routing on
+    - BrowserRouter reads the URLs and re-renders the app when the URL changes
+- **`App.jsx`** maps URLs to pages
+    - Routes takes the URLs and checks every Route inside it to find the one that matches
+    - `Route element={<Blog />}` is the parent route(layout route) and has no path because it wraps the child routes, so that every route will include the `<Blog/>` component which 
+- **`Blog.jsx`** is the shared layout
+    - conains the `<NavBar>` component that will be render with every route
+    - uses `<Outlet/>`, which gets swapped for the child route that matches the url
+- **`BlogPost.jsx`** display one post
+    - reads the dynamic part of the URL `:slug`
+    - display the post the match the `slug`
+
+## Post Context
+> The posts context lives in four files that each do one job 
+- **`posts.js`** holds the starting data
+- **`postReducer.js`** decides how that data can change
+    - it has only a default case and adding a new case is easy
+- **`PostsProvider.jsx`** stores the data and shares it
+- **`PostsContext.js`** creates the shared container and components uses the usePosts() hook to read it
 
 
-- BrowserRouter reads the URLs and re-renders the app when the URL changes
-- Routes takes the URLs and checks every Route inside it to find the one that matches
-- `Route element={<Blog />}` is the parent route(layout route) and has no path
-    - Uses `<Outlet/>`, which gets swapped for the child route that matches the url
-    - It wraps the child routes, so that every route will include the `<Blog/>` component
+## Authentication System (AuthContext)
+- [ ] **Auth Context:**
+    - [ ] Create a context (AuthContext) to manage the authentication state.
+    - [ ] The context should provide:
+        - [ ] isAuthenticated: A boolean indicating the user’s login status.
+        - [ ] login(): A function to simulate logging in (sets isAuthenticated to true).
+        - [ ] logout(): A function to simulate logging out (sets isAuthenticated to false).
+- [ ] **Login Page (/login):**
+    - [ ] A simple page with a “Log In” button that calls the login() function from the context.
+- [ ] **Navbar/Header:**
+    - [ ] The application’s main navigation should display a “Log In” link if the user is logged out, and a “Log Out” button and a link to the “Admin” page if the user is logged in.
+- Actual authentication is not required, but you should use the AuthContext to manage the authentication state and switch between the login and logout states when the buttons are clicked.
+
+---
+
+
+
+
