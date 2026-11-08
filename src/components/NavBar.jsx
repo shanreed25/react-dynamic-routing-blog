@@ -1,23 +1,40 @@
-import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import { styles } from '../styles/styles';
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline"
+import useAuth from '../context/AuthContext'
 
 export default function NavBar(){
+  const { isAuthenticated, logout } = useAuth();
+
+
+
+
     return (
         <header className={styles.header}>
             {/* <div className='h-18 mx-auto px-6 border-b border-b-emerald-500'> */}
             <div className={styles.headerContent}>
             <NavLink to="/"><Logo /></NavLink>
-            <nav>
-              <NavLink to="/blog">Blog Post</NavLink>
-              <NavLink to="/login">Login</NavLink>
+            <nav className="flex justify-around text-[#8E51F0]">
+              <NavLink to="/" className="hover:text-teal-500">Home</NavLink>
+              <NavLink to="/blog" className="hover:text-teal-500">Blog</NavLink>
+
             </nav>
 
-            <div className='flex gap-8 items-center'>
+            {/* <div className='flex gap-8 items-center'>
               <button>
                 <SunIcon className='size-6 text-teal-500'/>
               </button>
               <button type='button' className={styles.headerBtn}>Subscribe</button>
+            </div> */}
+
+
+            <div className='flex justify-end'>
+              {isAuthenticated ? (
+                  <button type="button" className={styles.headerBtn} onClick={() => logout()}>Log Out</button>
+              ) : (
+                <Link to="/login"><button type="button" className={styles.headerBtn}>Login</button></Link>
+              )}
+
             </div>
             </div>
         </header>
