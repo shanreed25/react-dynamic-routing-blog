@@ -19,7 +19,7 @@
     - [X] It must use the slug from the URL to find and display the correct post’s title and content from your mock data.
     - [X] If a post with the given slug cannot be found, it should display a “Post not found” message.
 
-## Routing
+### Routing
 > Routing uses React Router with four files doing the work
 - **`main.jsx`** turns routing on
     - BrowserRouter reads the URLs and re-renders the app when the URL changes
@@ -33,7 +33,7 @@
     - reads the dynamic part of the URL `:slug`
     - display the post the match the `slug`
 
-## Post Context
+### Post Context
 > The posts context lives in four files that each do one job 
 - **`posts.js`** holds the starting data
 - **`postReducer.js`** decides how that data can change
@@ -43,17 +43,27 @@
 
 
 ## Authentication System (AuthContext)
-- [ ] **Auth Context:**
-    - [ ] Create a context (AuthContext) to manage the authentication state.
-    - [ ] The context should provide:
-        - [ ] isAuthenticated: A boolean indicating the user’s login status.
-        - [ ] login(): A function to simulate logging in (sets isAuthenticated to true).
-        - [ ] logout(): A function to simulate logging out (sets isAuthenticated to false).
-- [ ] **Login Page (/login):**
-    - [ ] A simple page with a “Log In” button that calls the login() function from the context.
+- [X] **Auth Context:**
+    - [X] Create a context (AuthContext) to manage the authentication state.
+    - [X] The context should provide:
+        - [X] isAuthenticated: A boolean indicating the user’s login status.
+        - [X] login(): A function to simulate logging in (sets isAuthenticated to true).
+        - [X] logout(): A function to simulate logging out (sets isAuthenticated to false).
+- [X] **Login Page (/login):**
+    - [X] A simple page with a “Log In” button that calls the login() function from the context.
 - [ ] **Navbar/Header:**
     - [ ] The application’s main navigation should display a “Log In” link if the user is logged out, and a “Log Out” button and a link to the “Admin” page if the user is logged in.
 - Actual authentication is not required, but you should use the AuthContext to manage the authentication state and switch between the login and logout states when the buttons are clicked.
+
+### Auth Context
+
+- **`authReducer.js`** decides what the new state is for each action
+- **`AuthContext.js`** creates the shared "channel" and the useAuth hook that reads from it
+- **`AuthProvider.jsx`** holds the state and broadcasts it on the channel
+- **`main.jsx`**	Wraps the app in <AuthProvider> so everything inside can tune in
+
+
+
 
 ---
 

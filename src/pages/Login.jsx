@@ -13,7 +13,7 @@ export default function Login(){
     return (
        <>
             <p className="text-5xl my-15">You must login</p>
-            <button className={styles.loginBtn}>Log In</button>
+            <button className={styles.loginBtn} onClick={() => login()}>Log In</button>
        </>
     )
 }

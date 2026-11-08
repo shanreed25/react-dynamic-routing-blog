@@ -1,12 +1,10 @@
 export function authReducer(state, action) {
   switch (action.type) {
     case "login":
-        console.log("Logging In");
-
+      return { ...state, isAuthenticated: true };
     case "logout": 
-    console.log("Logging Out");
-    default: {
+      return { ...state, isAuthenticated: false };
+    default: 
       return state;
-    }
   }
 }

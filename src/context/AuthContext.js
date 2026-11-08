@@ -6,7 +6,7 @@ export default function useAuth() {
   const context = useContext(AuthContext);
 
   if (context === undefined) {
-    throw new Error("useAuth must be used inside of the PostsContext.Provider");
+    throw new Error("useAuth must be used inside of the AuthContext.Provider");
   }
 
   return context;

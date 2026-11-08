@@ -6,11 +6,13 @@ export default function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(authReducer, {isAuthenticated: false,});
 
   function login() {
+    console.log("You have been logged in successfully");
     dispatch({ type: "login" });
   }
 
   function logout() {
     dispatch({ type: "logout" });
+    console.log("You have been logged out successfully");
   }
 
   return (
