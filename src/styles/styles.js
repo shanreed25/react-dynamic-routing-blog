@@ -4,4 +4,5 @@ export const styles = {
     headerBtn: "rounded-lg bg-teal-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-teal-600",
     content: "min-h-screen bg-[#0C0618] flex flex-col gap-20 items-center text-white",
     loginBtn: "rounded-lg bg-teal-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-teal-600",
+    tagPills: "px-3 py-1 rounded-full text-sm font-medium text-purple-100 bg-purple-950/70 border border-teal-500"
 }

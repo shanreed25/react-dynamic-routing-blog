@@ -17,6 +17,7 @@ export default function NavBar(){
             <nav className="flex justify-around text-[#8E51F0]">
               <NavLink to="/" className="hover:text-teal-500">Home</NavLink>
               <NavLink to="/blog" className="hover:text-teal-500">Blog</NavLink>
+              {isAuthenticated && <NavLink to="/admin" className="hover:text-teal-500">Admin</NavLink>}
 
             </nav>
 
@@ -32,7 +33,7 @@ export default function NavBar(){
               {isAuthenticated ? (
                   <button type="button" className={styles.headerBtn} onClick={() => logout()}>Log Out</button>
               ) : (
-                <Link to="/login"><button type="button" className={styles.headerBtn}>Login</button></Link>
+                <Link to="/login" className={styles.headerBtn}>Log In</Link>
               )}
 
             </div>

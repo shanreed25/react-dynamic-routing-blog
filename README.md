@@ -41,6 +41,7 @@
 - **`PostsProvider.jsx`** stores the data and shares it
 - **`PostsContext.js`** creates the shared container and components uses the usePosts() hook to read it
 
+> PostsContext, PostsProvider and postReducer are not needed but I added them because I will add functionality to add, edit and delete post later
 
 ## Authentication System (AuthContext)
 - [X] **Auth Context:**

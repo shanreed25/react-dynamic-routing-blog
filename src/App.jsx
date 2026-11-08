@@ -5,6 +5,8 @@ import BlogPost from './pages/BlogPost';
 import Blog from './components/Blog';
 import NotFound from './pages/NotFound'
 import Login from './pages/Login'
+import ProtectedRoute from './components/ProtectedRoute';
+import Admin from './pages/Admin';
 
 function App() {
 
@@ -24,6 +26,9 @@ function App() {
           <Route path='/blog' element={<BlogPosts />}/>
           <Route path='/blog/:slug' element={<BlogPost />}/>
           <Route path='/login' element={<Login />}/>
+          <Route element={<ProtectedRoute/>} >
+            <Route path='/admin' element={<Admin/>}/>
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
