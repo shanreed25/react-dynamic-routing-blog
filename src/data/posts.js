@@ -1,4 +1,4 @@
-const posts = [
+const initialPosts = [
   {
     id: 1,
     slug: "getting-started-with-ai-coding-assistants",
@@ -113,4 +113,4 @@ Through every stage, keep the final decisions yours. The assistant can suggest s
   },
 ];
  
-export default posts;
+export default initialPosts;

@@ -1,7 +1,9 @@
 import { Routes, Route} from 'react-router-dom';
 import HomePage from './components/HomePage';
-import BlogPosts from './components/BlogPosts';
+import BlogPosts from './pages/BlogPosts';
+import BlogPost from './pages/BlogPost';
 import Blog from './components/Blog';
+import NotFound from './pages/NotFound'
 
 function App() {
 
@@ -19,6 +21,8 @@ function App() {
         <Route element={<Blog />}>
           <Route path='/' element={<HomePage />}/>
           <Route path='/blog' element={<BlogPosts />}/>
+          <Route path='/blog/:slug' element={<BlogPost />}/>
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
   )
