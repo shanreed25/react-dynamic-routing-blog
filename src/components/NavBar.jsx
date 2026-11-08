@@ -7,7 +7,7 @@ export default function NavBar(){
         <header className={styles.header}>
             {/* <div className='h-18 mx-auto px-6 border-b border-b-emerald-500'> */}
             <div className={styles.headerContent}>
-            <Logo />
+            <NavLink to="/"><Logo /></NavLink>
             <nav>
               <NavLink to="/blog">Blog Post</NavLink>
             </nav>
