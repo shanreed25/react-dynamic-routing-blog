@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import HomePage from './components/HomePage';
 import BlogPosts from './components/BlogPosts';
 import Blog from './components/Blog';

@@ -1,12 +1,20 @@
-import posts from '../data/posts'
+import posts from "../data/posts";
+import { Link } from "react-router-dom";
 
-export default function BlogPosts(){
-    return( 
+export default function BlogPosts() {
+  return (
     <div>
-        <h2>Blog Post</h2>
+      <h2 className="text-6xl my-20">Blog Posts</h2>
+
+      <ul className="grid lg:grid-cols-3 gap-6 sm:grid-cols-2">
         {posts.map((post) => (
-            <p key={post.id}>{post.title}</p>
+          <li key={post.id} className="p-15 rounded-xl border-2 border-teal-500 bg-[#0f0e17]">
+            <Link to={`/blog/${post.slug}`} >
+              <p>{post.title}</p>
+            </Link>
+          </li>
         ))}
+      </ul>
     </div>
-)
+  );
 }
