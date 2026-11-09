@@ -25,13 +25,13 @@
     - BrowserRouter reads the URLs and re-renders the app when the URL changes
 - **`App.jsx`** maps URLs to pages
     - Routes takes the URLs and checks every Route inside it to find the one that matches
-    - `Route element={<Blog />}` is the parent route(layout route) and has no path because it wraps the child routes, so that every route will include the `<Blog/>` component which 
+    - `Route element={<Blog />}` is the parent route(layout route) and has no path because it wraps the child routes, so that every route will include the `<Blog/>` component
 - **`Blog.jsx`** is the shared layout
-    - conains the `<NavBar>` component that will be render with every route
+    - contains the `<NavBar>` component that will be render with every route
     - uses `<Outlet/>`, which gets swapped for the child route that matches the url
 - **`BlogPost.jsx`** display one post
     - reads the dynamic part of the URL `:slug`
-    - display the post the match the `slug`
+    - displays the post the match the `slug`
 
 ### Post Context
 > The posts context lives in four files that each do one job 
@@ -52,21 +52,37 @@
         - [X] logout(): A function to simulate logging out (sets isAuthenticated to false).
 - [X] **Login Page (/login):**
     - [X] A simple page with a “Log In” button that calls the login() function from the context.
-- [ ] **Navbar/Header:**
-    - [ ] The application’s main navigation should display a “Log In” link if the user is logged out, and a “Log Out” button and a link to the “Admin” page if the user is logged in.
+- [X] **Navbar/Header:**
+    - [X] The application’s main navigation should display a “Log In” link if the user is logged out, and a “Log Out” button and a link to the “Admin” page if the user is logged in.
 - Actual authentication is not required, but you should use the AuthContext to manage the authentication state and switch between the login and logout states when the buttons are clicked.
+
+## Protected Admin Route
+- [X] Admin Page (/admin):
+    - [X] This page should be protected. It should only be accessible to authenticated users.
+    - [X] If an unauthenticated user tries to access /admin directly, they should be redirected to the /login page.
+    - [X] The content can be simple, for example: “Welcome to the Admin Dashboard.”
+
 
 ### Auth Context
 
 - **`authReducer.js`** decides what the new state is for each action
-- **`AuthContext.js`** creates the shared "channel" and the useAuth hook that reads from it
-- **`AuthProvider.jsx`** holds the state and broadcasts it on the channel
-- **`main.jsx`**	Wraps the app in <AuthProvider> so everything inside can tune in
+- **`AuthContext.js`** creates the shared context and the useAuth hook that reads from it
+- **`AuthProvider.jsx`** holds the state and shares it with the context
+- **`main.jsx`** wraps the app in <AuthProvider> so everything inside can tune in
+- **`App.jsx`** decides which routes are protected
+
+> authReducer.js is not needed but I added it because I might want to extend to a a real login later
 
 
+##  Page Transitions
+> As a bonus, add simple fade-in/fade-out transitions when navigating between pages. Libraries like framer-motion (specifically its AnimatePresence component) are excellent for this.
 
+### How the transitions work
+> The fade is set up in `Blog.jsx`, the layout route that wraps every page, using the `motion` library 
+- **`motion.div`** is a `<div>` that accepts animation props
+- **`AnimatePresence`** keeps a page on screen after it is removed so its `exit` animation can play
+- **`useOutlet()`** is used instead of `<Outlet />` to capture the current page as a value, so the page that is fading out keeps showing its own content instead of switching to the new page early
 
----
 
 
 

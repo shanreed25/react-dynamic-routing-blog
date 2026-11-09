@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import usePosts from "../context/PostsContext";
+import { styles } from "../styles/styles";
 
 export default function BlogPost() {
   //get the posts
@@ -21,15 +22,22 @@ export default function BlogPost() {
   if (post === undefined) {
     return (
       <div>
-        <h2 className="text-white text-6xl my-20">Post Not Found</h2>
+        <h2 className="text-6xl my-20">Post Not Found</h2>
       </div>
     );
   }
 
   return (
-    <article className="text-white">
+    <article className="flex flex-col gap-5 p-15">
       <h2 className="text-6xl my-20">{post.title}</h2>
-      <p>{post.content}</p>
+      <p>{post.date}</p>
+      <div className="flex gap-5 my-5">{post.tags.map((tag) => (
+                      <span key={tag} className={styles.tagPills}>{tag}</span>
+                    ))}</div>
+      <div className=" flex flex-col gap-5 p-15 rounded-xl border-2 border-teal-500 bg-[#0f0e17]">
+          <p>{post.content}</p>
+      </div>
+      
     </article>
   );
 }

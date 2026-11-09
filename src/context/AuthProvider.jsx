@@ -3,6 +3,8 @@ import { authReducer } from "../reducers/authReducer";
 import { AuthContext } from "./AuthContext";
 
 export default function AuthProvider({ children }) {
+  //could just use useState for isAuthenticated but adding the reducer
+  //means I can easily extend the app later
   const [state, dispatch] = useReducer(authReducer, {isAuthenticated: false,});
 
   function login() {
